@@ -1,0 +1,16 @@
+const express=require("express")
+
+const router =express.Router();
+
+const {User}=require("../models/user")
+const{handleGetUsers,handleFindUser,handleUpdateUser,handleDeleteUser,handleCreateUser}=require("../controllers/user")
+
+router.get("/",handleGetUsers);
+
+router.post("/",handleCreateUser);
+router.route("/:id").get(handleFindUser).patch(handleUpdateUser).delete(handleDeleteUser)
+
+
+
+
+module.exports = router;
