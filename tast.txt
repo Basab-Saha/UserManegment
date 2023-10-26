@@ -1,0 +1,51 @@
+All the tasks:-
+
+GET /users-  List all users       ✅ Done (Milestone 1)
+ 
+GET /users/1 ->get the user with id=1
+GET /users/2 ->get the user with id=2
+
+POST/users-->Create a new user
+
+PATCH/user/1-->Edit the user with id=1
+
+DELETE/users/1--->Delete the user with id=1
+
+//for these we need data from db
+//but we dont have any db for now
+//
+
+//Update -1:  GET/api/user --->will render a json data    ✅ Done
+              GET/user-->will render a HTML doc with all users listed ✅Done
+        so /api/  dewa mane we want json data .
+
+Note -1:  GET /users/1 -->get info of user 1
+          GET/user/787  -->get info of user 787
+          Now we can't hardcode get req handler for all this individual path of /user/(id=x)
+          So the id is actually a DYNAMIC PATH PARAMETRE 
+
+          Getting this dynamic path paramtere (param):  [ : lagano gulokei param bole, multiple param thakte pare]
+          const id = req.param.id
+          then apply filter or find function in your json array of object to find the obj with id=x
+          then return it as res.json()
+    
+GET /users/1 ->get the user with id=1   ✅Done
+GET /users/2 ->get the user with id=2   ✅Done
+
+
+Update -2:
+
+GET /users/2 ->get the user with id=2
+PATCH/user/1-->Edit the user with id=1
+DELETE/users/1--->Delete the user with id=1   
+You can see the path is same for all just the req method is diff
+so we can merge these 3 by mentioning only 1 path and 3 req methods
+
+like app.route(" ").get((req,res)=>{    }).patch((req,res)=>{}).delete((req,res)=>{   })
+
+PATCH/user/1-->Edit the user with id=1  ✅Done
+DELETE/users/1--->Delete the user with id=1  ✅Done
+
+
+Note 3:  There is no way to send a POST req through a browser
+so we need a differenet s/w to send a post req to our server  -> index.js
